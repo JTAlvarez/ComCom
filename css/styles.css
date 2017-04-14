@@ -1,0 +1,556 @@
+@font-face {
+    font-family: 'FuturaLight';
+    src: url(futura_light.woff);
+}
+
+@font-face {
+    font-family: 'FuturaBold';
+    src: url(futura_bold.woff2);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: FuturaLight;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-align: center;
+}
+
+a {
+    text-decoration: none;
+}
+
+.container-index img {
+    width: 100%;
+}
+
+.container-index {
+    width: 100%;
+    margin: auto;
+    /*overflow-x: hidden;*/
+}
+
+.banner {
+    position: relative;
+    clear: both;
+}
+
+.banner img {
+    display: block;
+    max-height: 480px;
+    margin: auto;
+}
+
+.banner-content {
+    display: block;
+    width: 36%;
+    position: absolute;
+    top: 9%;
+    left: 31%;
+}
+
+.banner-content h1 {
+    color: white;
+    text-align: center;
+    font-size: 1.05em;
+}
+
+.categories a:hover {
+    background-color: black;
+    color: white;
+}
+
+.toggle-cat, .cat a {
+    display: block;
+    color: black;
+    font-size: 0.9em;
+    padding: 0.3em;
+    text-align: center;
+}
+
+.cat ul {
+    display: none;
+}
+
+.cat li {
+    background-color: #dddddd;
+    border-bottom: solid 1px black;
+}
+
+.cat li:first-child {
+    border-top: solid 1px black;
+}
+
+.promo {
+    width: 100%;
+}
+
+.promo h2 {
+    color: black;
+    text-align: center;
+    font-size: 1.05em;
+}
+
+.vip-products {
+    width: 95%;
+    margin: auto;
+}
+
+.product {
+    margin-top: 20px;
+    position: relative;
+}
+
+.product h2 {
+    margin: 0;
+    font-size: 1em;
+    padding: 0.5em;
+    text-align: center;
+}
+
+.product h3 {
+    display: block;
+    width: 60px;
+    position: absolute;
+    bottom: 15%;
+    right: 5%;
+    padding: 0.5em;
+    text-align: center;
+    color: white;
+    background-color: red;
+    border-radius: 50%;
+}
+
+.button a {
+    display: block;
+    width: 150px;
+    margin: 30px auto;
+    font-weight: bold;
+    color: black;
+    padding: 0.4em;
+    font-size: 0.9em;
+    border: solid 1px black;
+    text-align: center;
+}
+
+.ion-android-arrow-down {
+    display: none;
+}
+
+.answer {
+    display: none;
+}
+
+
+/*Style header -------------------------*/
+
+.header-container {
+    width: 100%;
+    margin: auto;
+}
+
+.header-container h1 {
+    display: inline-block;
+    font-family: 'FuturaBold';
+    float: left;
+    text-align: center;
+    margin: auto;
+    font-size: 1.5em;
+    padding: 10px 5px;
+}
+
+.search-container {
+    display: none;
+}
+
+
+.signup-button {
+    background-color: orange;
+    display: inline-block;
+    float: right;
+    text-align: center;
+    width: 90px;
+    padding: 5px;
+    border-radius: 4px;
+    margin: 5px 5px;
+    margin-top: 8px;
+}
+
+.signup-button a {
+    color: white;
+    font-size: 1em;
+    font-weight: bold;
+}
+
+.login-button {
+    display: inline-block;
+    float: right;
+    text-align: center;
+    width: 70px;
+    margin: 5px 5px;
+    margin-top: 8px;
+    padding: 5px;
+}
+
+.signup-button:hover {
+    background-color: #d15a04;
+}
+
+.login-button:hover {
+    text-decoration: underline;
+}
+
+.login-button a {
+    color: black;
+    border: 3px black;
+    font-weight: bold;
+}
+
+.nav-header {
+    width: 100vw;
+    height: 0vw;
+    background-color: #ffffff;
+    overflow: hidden;
+    transition: 500ms;
+}
+
+.nav-header a {
+    display: block;
+    font-size: 1.2em;
+    padding: 12px;
+    text-decoration: none;
+    border-bottom: solid 4px #ffffff;
+    color: #ffffff;
+}
+
+.nav-open {
+    display: inline-block;
+    float: right;
+    position: absolute;
+    top: 5px;
+    left: 95px;
+}
+
+.nav-open i {
+    color: black;
+    font-size: 2em;
+    padding-right: 5px;
+}
+
+#header-event {
+    display: none;
+}
+
+#header-event:checked~.nav-header {
+    width: 100vw;
+    height: auto;
+    background-color: #000000;
+}
+
+
+/*End style header -------------------------*/
+
+
+/*Preguntas Frecuentes*/
+
+.container-FAQs {
+    width: 100%;
+    margin: auto;
+}
+
+.container-FAQs-2 {
+    width: 95%;
+    margin: auto;
+}
+
+.titulo-FAQs {
+    text-align: center;
+    font-family: FuturaBold;
+    font-size: 2.5em;
+}
+
+.acordin-body h2 {
+    margin: 0;
+    font-size: 1.4em;
+    border-bottom: solid 5px white;
+    padding: 10px;
+    color: white;
+}
+
+.acordin-title {
+    background-color: black;
+}
+
+.answer {
+    margin-left: 10px;
+    font-size: 1.1em;
+    background-color: white;
+}
+
+.answer i {
+    margin-bottom: 10px;
+    font-size: 0.6em;
+}
+
+.box-register {
+    margin: auto;
+    width: 90%;
+}
+
+
+/*borde que contiene el formulario entero*/
+
+.register-container {
+    border: 2px solid #cccccc;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+
+/*Titulo*/
+
+.register-title {
+    background-color: #eeeeee;
+}
+
+.register-title h1 {
+    text-align: center;
+    padding: 15px;
+    margin: 0;
+    font-size: 1em;
+}
+
+
+/*El formulario*/
+
+.register-form {
+    margin: auto;
+    width: 85%;
+}
+
+.register-form p {
+    text-align: center;
+    font-size: 0.8em;
+}
+
+
+/*Ingresar con facebook*/
+
+.fb-button {
+    display: block;
+    background-color: #336699;
+    padding: 10px 0;
+    margin-top: 10px;
+}
+
+.fb-button img {
+    vertical-align: middle;
+}
+.fb-button {
+    text-align: center;
+    color: white;
+    font-size: 0.7em;
+}
+
+.register-button {
+    color: white;
+    font-size: 0.85em;
+}
+
+
+/*los campos*/
+
+.register-form input {
+    margin: 2px 0px;
+    padding: 6px 0px;
+    width: 100%;
+    font-size: 12px;
+}
+
+.register-form label input {
+    width: auto;
+    margin: 5px 5px 5px 0;
+}
+
+.terminos {
+    color: #555555;
+    font-size: 0.8em;
+}
+
+
+/*Boton registrarse*/
+
+.register-button {
+    width: 100%;
+    padding: 1px;
+    background-color: black;
+    color: white;
+    margin: 8px 0 15px 0;
+    font-size: 0.8em;
+}
+
+.register-footer {
+    text-align: center;
+    margin-top: 20px;
+}
+
+
+/* FOOTER */
+
+.footer-terms ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    background-color: #eeeeee;
+}
+
+.footer-terms ul li {
+    padding: 10px 0;
+    text-align: center;
+}
+
+.footer-bottom p {
+    text-align: center;
+    background-color: black;
+    color: white;
+    padding: 10px 0;
+    margin: 0;
+}
+
+@media (min-width: 640px) {
+    .search-container {
+        display: inline-block;
+        border: none;
+    }
+    .searchbar {
+        border: none;
+        border-bottom: solid 1px #5f5f5f;
+        display: inline-block;
+        position: absolute;
+        left: 150px;
+        width: 40%;
+    }
+
+    #search-container .text:focus{
+        outline: 0px;
+    }
+
+    .login-button {
+        float: right;
+        margin: auto;
+        margin-top: 8px;
+        margin-left: 2%
+    }
+    .signup-button {
+        display: inline-block;
+        float: right;
+        text-align: center;
+        width: 90px;
+        margin-top: 8px;
+        padding: 5px;
+    }
+    .nav-open {
+        display: none;
+    }
+    .header-container nav {
+        display: block;
+        height: inherit;
+        background-color: rgb(0, 0, 0);
+    }
+    header ul {
+        display: block;
+        overflow: hidden;
+    }
+    header li {
+        width: 25%;
+        float: left;
+        margin: auto;
+        border: none;
+    }
+    header a {
+        font-size: 1em;
+        text-align: center;
+        padding: 0;
+        overflow: hidden;
+    }
+    .banner-content h1 {
+        font-size: 2.4em;
+    }
+    .toggle-cat {
+        display: none;
+    }
+    .categories a:hover {
+        border-radius: 20px;
+    }
+    .cat ul {
+        display: block !important;
+        overflow: hidden;
+    }
+    .cat li {
+        width: 30%;
+        float: left;
+        margin: 20px 1.66%;
+        border: none !important;
+        border-radius: 20px;
+    }
+    .cat a {
+        font-size: 1em;
+        text-align: center;
+    }
+    .promo h2 {
+        font-size: 1.5em;
+    }
+    .vip-products {
+        overflow: hidden;
+    }
+    .product {
+        width: 48.3%;
+        margin: 0 0.83%;
+        float: left;
+        margin-top: 20px;
+    }
+    .box-register {
+        max-width: 400px;
+        min-width: 400px;
+        width: 33.33%;
+    }
+    /* FOOTER */
+    .footer-terms ul li {
+        display: inline-block;
+        padding: 18px 10px;
+    }
+    .footer-terms ul li:after {
+        content: "|";
+    }
+    .footer-terms ul li:last-child:after {
+        content: none;
+    }
+    .footer-terms li:after {
+        padding-left: 22px;
+    }
+}
+
+@media (min-width: 960px) {
+    .banner-content h1 {
+        font-size: 3.5em;
+    }
+    .promo h2 {
+        font-size: 1.9em;
+    }
+    .product {
+        width: 23.34%;
+    }
+    .cat li {
+        width: 13.346%;
+    }
+    .cat a {
+        font-size: 1.15em;
+    }
+}
