@@ -1,3 +1,33 @@
+<?php
+  require_once("funciones.php");
+
+  if(estaLogueado()) {
+    header("location:index.php");exit;
+  }
+
+  $correo = "";
+
+  $errores = [];
+
+
+  if ($_POST) {
+    $errores = validarAcceso($_POST);
+
+    if(empty($errores)) {
+      $usuario = buscarPorMail($_POST["correo"]);
+      acceder($usuario);
+
+      if(!isset($errores["correo"])){
+       $correo = $_POST["correo"];
+      }
+
+      if (isset($_POST["recordame"])) {
+        setcookie("idUser", $usuario["id"], time() + 86400 * 30);
+      }
+    }
+  }
+?>
+
 <!DOCTYPE html>
 <html>
 
@@ -26,10 +56,26 @@
             <div class="register-form">
                 <a href="#"><span class="fb-button"><img src="img/facebook.png" alt="facebook">&nbsp;&nbsp;INGRESÁ CON TU FACEBOOK</span></a>
                 <p>o ingresá con tu usuario</p>
-                <form class="" action="index.html" method="post">
-                    <input type="email" name="correo" placeholder=" CORREO ELECTRONICO" value="" required> <br>
+                <form class="" action="login.php" method="post">
+
+                  <div class="">
+                    <?php if(isset($errores["correo"])){ ?>
+                      <span class="valError"><?=$errores["correo"]?></span>
+                    <?php } ?>
+                    <input type="text" class="<?=(isset($errores["correo"]))?("error"):("")?>" name="correo" placeholder=" CORREO ELECTRONICO" value="<?=$correo?>"> <br>
+                  </div>
+
+                  <div class="">
+                    <?php if(isset($errores["pass"])){ ?>
+                      <span class="valError"><?=$errores["pass"]?></span>
+                    <?php } ?>
                     <input type="password" name="pass" placeholder=" CONTRASEÑA" value="" required>
+                  </div>
+
+                    <label><input type="checkbox" name="recordame"><span class="terminos">Mantenerme conectado</span></label>
                     <button type="submit" class="register-button" name="registrarse"><p>INICIAR SESIÓN</p></button>
+                    <a href="#"><span> ¿Olvidaste tu contraseña? </span></a>
+
                 </form>
             </div>
         </div>
@@ -43,8 +89,6 @@
     <!-- footer -->
     <?php include_once "footer.php"; ?>
 </body>
-
-
 
 
 </html>

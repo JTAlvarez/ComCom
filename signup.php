@@ -1,3 +1,39 @@
+
+<?php
+
+require_once "funciones.php";
+
+if(estaLogueado()) {
+  header("location:index.php");exit;
+}
+
+$nombre = "";
+$apellido= "";
+$correo = "";
+
+$errores = [];
+
+if($_POST) {
+  $errores = validarRegistro($_POST);
+  if(count($errores)==0) {
+    $usuario = crearUsuario($_POST);
+    guardarUsuario($usuario);
+    header("Location:index.php");exit;
+  }
+
+  if(!isset($errores["nombre"])){
+    $nombre = $_POST["nombre"];
+  }
+  if(!isset($errores["apellido"])){
+   $apellido = $_POST["apellido"];
+  }
+  if(!isset($errores["correo"])){
+   $correo = $_POST["correo"];
+  }
+}
+
+?>
+
 <!DOCTYPE html>
 <html>
 
@@ -12,9 +48,9 @@
 </head>
 
 <body>
+  <!-- header -->
+  <?php   include_once "header.php";?>
 
-    <!-- header -->
-    <?php include_once "header.php"; ?>
     <br>
     <br>
     <br>
@@ -26,14 +62,43 @@
             <div class="register-form">
                 <a href="#"><span class="fb-button"><img src="img/facebook.png" alt="facebook">&nbsp;&nbsp;INGRESÁ CON TU FACEBOOK</span></a>
                 <p>o completá los siguientes datos</p>
-                <form class="" action="index.html" method="post">
-                    <input type="text" name="nombre" placeholder=" NOMBRE" value="" required>
-                    <input type="text" name="apellido" placeholder=" APELLIDO" value="" required> <br>
-                    <input type="email" name="correo" placeholder=" CORREO ELECTRONICO" value="" required> <br>
-                    <input type="password" name="pass" placeholder=" CONTRASEÑA" value="" required>
-                    <input type="password" name="cpass" placeholder=" CONFIRMAR CONTRASEÑA" value="" required> <br>
-                    <label><input type="checkbox" required><span class="terminos">Acepto <i>términos y condiciones</i> y las <i>políticas de privacidad</i> de Comcom</span></label> <br>
+                <form class="" action="signup.php" method="POST">
+                  <div class="">
+                    <?php if(isset($errores["nombre"])){ ?>
+                      <span class="valError"><?=$errores["nombre"]?></span>
+                    <?php } ?>
+                    <input type="text" class="<?=(isset($errores["nombre"]))?("error"):("")?>" name="nombre" placeholder=" NOMBRE" value="<?=$nombre?>">
+                  </div>
+                  <div class="">
+                    <?php if(isset($errores["apellido"])){ ?>
+                      <span class="valError"><?=$errores["apellido"]?></span>
+                    <?php } ?>
+                    <input type="text" class="<?=(isset($errores["apellido"]))?("error"):("")?>" name="apellido" placeholder=" APELLIDO" value="<?=$apellido?>"> <br>
+                  </div>
+                  <div class="">
+                    <?php if(isset($errores["correo"])){ ?>
+                      <span class="valError"><?=$errores["correo"]?></span>
+                    <?php } ?>
+                    <input type="text" class="<?=(isset($errores["correo"]))?("error"):("")?>" name="correo" placeholder=" CORREO ELECTRONICO" value="<?=$correo?>"> <br>
+                  </div>
+                  <div class="">
+                    <?php if(isset($errores["pass"])){ ?>
+                      <span class="valError"><?=$errores["pass"]?></span>
+                    <?php } ?>
+                    <input type="password" class="<?=(isset($errores["pass"]))?("error"):("")?>" name="pass" placeholder=" CONTRASEÑA" value="">
+                  </div>
+                  <div class="">
+                    <?php if(isset($errores["cpass"])){ ?>
+                      <span class="valError"><?=$errores["cpass"]?></span>
+                    <?php } ?>
+                    <input type="password" class="<?=(isset($errores["cpass"]))?("error"):("")?>" name="cpass" placeholder=" CONFIRMAR CONTRASEÑA" value=""> <br>
+                  </div>
+                  <div class="">
+                    <label><input type="checkbox"><span class="terminos">Acepto <i>términos y condiciones</i> y las <i>políticas de privacidad</i> de Comcom</span></label> <br>
+                  </div>
+                  <div class="">
                     <button type="submit" class="register-button" name="registrarse"><p>REGISTRARSE</p></button>
+                  </div>
                 </form>
             </div>
         </div>

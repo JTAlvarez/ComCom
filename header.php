@@ -1,3 +1,9 @@
+<?php
+  require_once("funciones.php");
+
+  $usuarios = traerTodos();
+?>
+
 <header>
     <div class="header-container">
         <div class="">
@@ -9,6 +15,8 @@
 
         </div>
 
+      <?php  if(!estaLogueado()) { ?>
+
         <div class="login-button">
             <a href="login.php">Ingresar</a>
         </div>
@@ -16,6 +24,22 @@
         <div class="signup-button">
             <a href="signup.php">Registrarse</a>
         </div>
+
+        <?php } else { foreach ($usuarios as $usuario) {  ?>
+
+          <div class="perfil-button">
+            <a href="perfilDeUsuario.php?id=<?=$usuario["id"]?>">
+          <?=$usuario["nombre"]?>
+        </a>
+    </div>
+  <?php } ?>
+
+    <div class="logout-button">
+        <a href="logout.php">Salir</a>
+    </div>
+
+      <?php } ?>
+
         <!-- header menu	 -->
         <input class="nav-open" type="checkbox" id="header-event">
 
