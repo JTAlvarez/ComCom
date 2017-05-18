@@ -1,10 +1,6 @@
 <?php
   require_once("funciones.php");
 
-  if(estaLogueado()) {
-    header("location:index.php");exit;
-  }
-
   $correo = "";
 
   $errores = [];
@@ -26,6 +22,11 @@
       }
     }
   }
+
+  if(estaLogueado()) {
+    header("location:index.php");exit;
+  }
+
 ?>
 
 <!DOCTYPE html>

@@ -1,4 +1,3 @@
-
 <footer>
     <nav class="footer-terms">
       <ul>

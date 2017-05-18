@@ -34,12 +34,25 @@ function buscarPorMail($correo) {
     foreach($all as $usuario){
       if($usuario["correo"] == $correo) {
         return $usuario;
-      } else {
-        return false;
       }
    }
  }
 }
+
+//BUSCAR USUARIO POR SU ID --------------------------------------------/
+function buscarPorId($id) {
+  $todos = traerTodos();
+
+  foreach ($todos as $usuario) {
+    if ($usuario["id"] == $id) {
+      return $usuario;
+    }
+  }
+
+  return false;
+}
+
+
 
 //ACCEDER A LA CUENTA DEL USUARIO --------------------------------------------//
 function acceder($usuario) {
@@ -126,10 +139,6 @@ function traerTodos() {
 
   function estaLogueado() {
     return isset($_SESSION["idUser"]);
-  }
-
-  function usuarioLogueado() {
-    return buscarPorId($_SESSION["idUser"]);
   }
 
 
