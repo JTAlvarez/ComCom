@@ -1,11 +1,9 @@
 
 <?php
 
-require_once "funciones.php";
+require_once("support.php");
+require_once("class/usuario.php");
 
-if(estaLogueado()) {
-  header("location:index.php");exit;
-}
 
 $nombre = "";
 $apellido= "";
@@ -14,11 +12,13 @@ $correo = "";
 $errores = [];
 
 if($_POST) {
-  $errores = validarRegistro($_POST);
+  $errores = $validador->validarRegistro($_POST,$db->getRepositorioUsuarios());
   if(count($errores)==0) {
-    $usuario = crearUsuario($_POST);
-    guardarUsuario($usuario);
-    header("Location:index.php");exit;
+    $usuario = $_POST;
+    $usuario["pass"] = Usuario::hashPassword($usuario["pass"]);
+    $usuario = Usuario::crearDesdeArray($usuario);
+    if (count($errores) == 0) {
+      $usuario->guardar($db->getRepositorioUsuarios());
   }
 
   if(!isset($errores["nombre"])){
@@ -30,6 +30,7 @@ if($_POST) {
   if(!isset($errores["correo"])){
    $correo = $_POST["correo"];
   }
+}
 }
 
 ?>
@@ -110,8 +111,6 @@ if($_POST) {
     <br>
     <br>
     <!-- footer -->
-    <?php include_once "footer.php"; ?>
-
-</body>
-
+    <?php include_once ("footer.php"); ?>
+  </body>
 </html>

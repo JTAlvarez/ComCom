@@ -1,2 +1,7 @@
 {"nombre":"Sergio","apellido":"Gentiletti","correo":"gentiletti.sergio@gmail.com","pass":"$2y$10$MX0mM5WQAN\/L4rRhYbPds.y8\/1uSSWGmpVfLQfsiQOpnYo2G4qQoW","id":1}
 {"nombre":"Nicolas","apellido":"Gentiletti","correo":"nicolas@hotmail.com","pass":"$2y$10$\/TNQoNa4q7LtxFiRC7Xxt.7E752xveJmQ.b86YWvLfGvY2nQqvhDC","id":2}
+{"nombre":"Yuri ","apellido":"Chung","correo":"yurichung89@gmail.com","pass":"$2y$10$WefcYIF17MHt1x15cSGdle5Mes2gL.cO51V90pIxfwaj7gpqrPWNu","id":1}
+{"id":2,"nombre":"abc","apellido":"def","correo":"abc@abc.com","pass":null}
+{"id":3,"nombre":"Nombre","apellido":"apellido","correo":"mail@dominio.com","pass":null}
+{"id":4,"nombre":"1","apellido":"2","correo":"1@2.com","pass":"$2y$10$DRTL2AeYMVwAZhO4ZiQEau0lRgeBpwraUaMPJV1rVRhDvyU5un3Q6"}
+{"id":5,"nombre":"Tomas","apellido":"Tomas","correo":"tj@a.com","pass":"$2y$10$TEAC2HT6nALi9FuMTjqUBuI5DxlgQaVw410dIkNOIgcu8khRBjMxm"}

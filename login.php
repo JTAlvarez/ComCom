@@ -1,5 +1,9 @@
 <?php
-  require_once("funciones.php");
+  require_once("support.php");
+
+  if($auth->estaLogueado()) {
+    header("location:index.php");exit;
+  }
 
   $correo = "";
 
@@ -7,24 +11,20 @@
 
 
   if ($_POST) {
-    $errores = validarAcceso($_POST);
+    $errores = $validador->validarAcceso($_POST, $db->getRepositorioUsuarios());
 
     if(empty($errores)) {
-      $usuario = buscarPorMail($_POST["correo"]);
-      acceder($usuario);
+      $usuario =  $db->getRepositorioUsuarios()->buscarPorMail($_POST["correo"]);
+      $auth->acceder($usuario->getId());
 
-      if(!isset($errores["correo"])){
-       $correo = $_POST["correo"];
-      }
+      // if(!isset($errores["correo"])){
+      //  $correo = $_POST["correo"];
+      // }
 
       if (isset($_POST["recordame"])) {
-        setcookie("idUser", $usuario["id"], time() + 86400 * 30);
+        setcookie("idUser", $usuario->getId(), time() + 86400 * 30);
       }
     }
-  }
-
-  if(estaLogueado()) {
-    header("location:index.php");exit;
   }
 
 ?>
